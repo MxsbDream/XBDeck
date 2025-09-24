@@ -1,4 +1,4 @@
-// --- Gestion du focus et navigation au clavier/manette ---
+// Gestion du focus et navigation clavier/manette
 
 const tiles = Array.from(document.querySelectorAll('.tile'));
 let focusedIndex = 0;
@@ -10,6 +10,10 @@ function setFocus(index) {
   tiles[focusedIndex].focus();
 }
 
+function goToLink() {
+  tiles[focusedIndex].click();
+}
+
 // Navigation clavier (flèches)
 document.addEventListener('keydown', (e) => {
   const cols = 4;
@@ -19,10 +23,11 @@ document.addEventListener('keydown', (e) => {
   if (['ArrowUp', 'z', 'Z', 'w', 'W'].includes(e.key)) idx = Math.max(0, idx - cols);
   if (['ArrowDown', 's', 'S'].includes(e.key)) idx = Math.min(tiles.length - 1, idx + cols);
 
-  // Entrée = action (simulate)
+  // Entrée = action
   if (e.key === 'Enter' || e.key === ' ') {
     tiles[focusedIndex].classList.add('ring-4', 'ring-green-400');
     setTimeout(() => tiles[focusedIndex].classList.remove('ring-4', 'ring-green-400'), 150);
+    goToLink();
   }
 
   if (idx !== focusedIndex) setFocus(idx);
@@ -37,14 +42,12 @@ function pollGamepad() {
   if (!pad) return;
 
   // Mapping des boutons pour Xbox/PS/Switch
-  const dpadUp    = pad.buttons[12]?.pressed; // D-Pad Up
-  const dpadDown  = pad.buttons[13]?.pressed; // D-Pad Down
-  const dpadLeft  = pad.buttons[14]?.pressed; // D-Pad Left
-  const dpadRight = pad.buttons[15]?.pressed; // D-Pad Right
-  const btnA      = pad.buttons[0]?.pressed;  // Xbox A / Switch B / PS X
-  const btnB      = pad.buttons[1]?.pressed;  // Xbox B / Switch A / PS O
+  const dpadUp    = pad.buttons[12]?.pressed;
+  const dpadDown  = pad.buttons[13]?.pressed;
+  const dpadLeft  = pad.buttons[14]?.pressed;
+  const dpadRight = pad.buttons[15]?.pressed;
+  const btnA      = pad.buttons[0]?.pressed;
 
-  // Pour éviter les actions multiples (anti-repeat)
   if (!window._btnState) window._btnState = {};
 
   function handleBtn(name, pressed, cb) {
@@ -59,12 +62,17 @@ function pollGamepad() {
   handleBtn('A', btnA, () => {
     tiles[focusedIndex].classList.add('ring-4', 'ring-green-400');
     setTimeout(() => tiles[focusedIndex].classList.remove('ring-4', 'ring-green-400'), 150);
+    goToLink();
   });
-  // (B peut servir à revenir en arrière, à personnaliser)
 }
 
 window.addEventListener('gamepadconnected', (e) => {
   gamepadIndex = e.gamepad.index;
-  console.log('Manette détectée :', e.gamepad.id);
-  setInterval(pollGamepad, 1000 / 30); // 30 FPS pour la détection des boutons
+  setInterval(pollGamepad, 1000 / 30);
+});
+
+// Accessibilité : focus visible à la souris aussi
+tiles.forEach(tile => {
+  tile.addEventListener('focus', () => tile.classList.add('ring-4', 'ring-green-400'));
+  tile.addEventListener('blur', () => tile.classList.remove('ring-4', 'ring-green-400'));
 });
