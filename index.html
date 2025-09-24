@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Xbox OS - Web Edition</title>
+  <meta charset="UTF-8" />
+  <title>XBDeck - Le dashboard Xbox sur le web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="xboxos.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@700&display=swap">
 </head>
-<body>
-  <header>
-    <h1>Xbox</h1>
+<body class="bg-[#171a21] min-h-screen flex flex-col" style="font-family: 'Segoe UI', Arial, sans-serif;">
+  <header class="bg-[#107c10] px-6 py-4 flex items-center justify-between shadow-lg">
+    <h1 class="text-3xl font-bold tracking-widest">Xbox</h1>
     <nav>
-      <ul>
-        <li class="active">Accueil</li>
-        <li>Jeux</li>
-        <li>Applications</li>
-        <li>Paramètres</li>
-        <li>Profil</li>
+      <ul class="flex gap-8 text-lg">
+        <li class="font-semibold text-white/90 px-3 py-1 rounded-xl bg-white/10">Accueil</li>
+        <li class="hover:bg-white/10 px-3 py-1 rounded-xl cursor-pointer">Jeux</li>
+        <li class="hover:bg-white/10 px-3 py-1 rounded-xl cursor-pointer">Applications</li>
+        <li class="hover:bg-white/10 px-3 py-1 rounded-xl cursor-pointer">Paramètres</li>
+        <li class="hover:bg-white/10 px-3 py-1 rounded-xl cursor-pointer">Profil</li>
       </ul>
     </nav>
   </header>
-  <main>
-    <section class="dashboard">
-      <div class="tile large featured">
-        <span>Halo Infinite</span>
+  <main class="flex-1 flex justify-center items-center">
+    <section id="dashboard" class="grid grid-cols-4 gap-6 w-full max-w-6xl p-8">
+      <div class="tile col-span-2 row-span-2 bg-gradient-to-br from-[#23272e] to-[#107c10] rounded-2xl flex items-end p-8 text-2xl font-bold text-white shadow-xl focus:outline-green-400 focus:outline-4 cursor-pointer"
+        tabindex="0">
+        Halo Infinite
       </div>
-      <div class="tile">Forza Horizon 5</div>
-      <div class="tile">Paramètres</div>
-      <div class="tile">Store</div>
-      <div class="tile">YouTube</div>
-      <div class="tile">Netflix</div>
-      <div class="tile">Mes jeux</div>
+      <div class="tile bg-gradient-to-br from-[#23272e] to-[#107c10] rounded-2xl flex items-end p-6 text-lg font-semibold text-white shadow-lg focus:outline-green-400 focus:outline-4 cursor-pointer"
+        tabindex="0">
+        Forza Horizon 5
+      </div>
+      <div class="tile bg-gradient-to-br from-[#23272e] to-[#107c10] rounded-2xl flex items-end p-6 text-lg font-semibold text-white shadow-lg focus:outline-green-400 focus:outline-4 cursor-pointer"
+        tabindex="0">
+        Paramètres
+      </div>
+      <div class="tile bg-gradient-to-br from-[#23272e] to-[#107c10] rounded-2xl flex items-end p-6 text-lg font-semibold text-white shadow-lg focus:outline-green-400 focus:outline-4 cursor-pointer"
+        tabindex="0">
+        Store
+      </div>
+      <div class="tile bg-gradient-to-br from-[#23272e] to-[#107c10] rounded-2xl flex items-end p-6 text-lg font-semibold text-white shadow-lg focus:outline-green-400 focus:outline-4 cursor-pointer"
+        tabindex="0">
+        YouTube
+      </div>
+      <div class="tile bg-gradient-to-br from-[#23272e] to-[#107c10] rounded-2xl flex items-end p-6 text-lg font-semibold text-white shadow-lg focus:outline-green-400 focus:outline-4 cursor-pointer"
+        tabindex="0">
+        Netflix
+      </div>
+      <div class="tile bg-gradient-to-br from-[#23272e] to-[#107c10] rounded-2xl flex items-end p-6 text-lg font-semibold text-white shadow-lg focus:outline-green-400 focus:outline-4 cursor-pointer"
+        tabindex="0">
+        Mes jeux
+      </div>
     </section>
   </main>
-  <footer>
-    <span>Xbox OS Web • Prototype</span>
-  </footer>
+  <footer class="text-center text-gray-400 p-4 text-sm bg-[#101217]">Xbox OS Web • Prototype</footer>
   <script src="xboxos.js"></script>
 </body>
   </html>
