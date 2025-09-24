@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Xbox - Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+
+  <!-- Barre latérale -->
+  <aside class="fixed left-0 top-0 h-full w-16 flex flex-col items-center bg-gray-800 py-4 z-10">
+    <button class="mb-6 focus:outline-none">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" class="w-8 h-8" alt="Accueil" />
+    </button>
+    <button class="mb-6 focus:outline-none">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/compass.png" class="w-8 h-8" alt="Explorer" />
+    </button>
+    <button class="focus:outline-none">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" class="w-8 h-8" alt="Abonnements" />
+    </button>
+  </aside>
+
+  <!-- Barre de navigation en haut -->
+  <header class="pl-16 fixed top-0 left-0 w-full h-16 flex items-center bg-gray-900 z-20">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" class="h-8 ml-6" alt="YouTube Logo" />
+    <nav class="ml-12 flex space-x-6">
+      <button class="text-lg font-semibold focus:outline-none hover:text-red-500 transition">Accueil</button>
+      <button class="text-lg font-semibold focus:outline-none hover:text-red-500 transition">Tendances</button>
+      <button class="text-lg font-semibold focus:outline-none hover:text-red-500 transition">Abonnements</button>
+    </nav>
+    <div class="ml-auto mr-8 flex items-center space-x-4">
+      <input type="text" placeholder="Rechercher" class="rounded bg-gray-800 px-3 py-1 text-white focus:outline-none w-56" />
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" class="w-8 h-8" alt="Profil" />
+    </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="pl-20 pt-24 pr-8">
+    <!-- Ligne de vidéos -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">Recommandé</h2>
+      <div class="flex space-x-6 overflow-x-auto pb-4">
+        <!-- Tuile vidéo -->
+        <div class="flex-shrink-0 w-72">
+          <div class="bg-gray-700 rounded-lg overflow-hidden shadow-lg">
+            <img src="https://i.ytimg.com/vi/VIDEO_ID1/hqdefault.jpg" alt="Vidéo 1" class="w-full h-40 object-cover">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold truncate">Titre de la vidéo 1</h3>
+              <p class="text-gray-400 text-sm">Chaîne officielle</p>
+              <p class="text-gray-500 text-xs">1,2M vues · il y a 2 jours</p>
+            </div>
+          </div>
+        </div>
+        <!-- Répéter pour d'autres vidéos -->
+        <div class="flex-shrink-0 w-72">
+          <div class="bg-gray-700 rounded-lg overflow-hidden shadow-lg">
+            <img src="https://i.ytimg.com/vi/VIDEO_ID2/hqdefault.jpg" alt="Vidéo 2" class="w-full h-40 object-cover">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold truncate">Titre de la vidéo 2</h3>
+              <p class="text-gray-400 text-sm">Autre chaîne</p>
+              <p class="text-gray-500 text-xs">340K vues · il y a 10 heures</p>
+            </div>
+          </div>
+        </div>
+        <!-- Ajoute d'autres tuiles ici -->
+      </div>
+    </section>
+
+    <!-- Autres sections horizontales -->
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold mb-4">Gaming</h2>
+      <div class="flex space-x-6 overflow-x-auto pb-4">
+        <!-- Tuile vidéo -->
+        <div class="flex-shrink-0 w-72">
+          <div class="bg-gray-700 rounded-lg overflow-hidden shadow-lg">
+            <img src="https://i.ytimg.com/vi/VIDEO_ID3/hqdefault.jpg" alt="Vidéo 3" class="w-full h-40 object-cover">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold truncate">Gameplay incroyable</h3>
+              <p class="text-gray-400 text-sm">GamerX</p>
+              <p class="text-gray-500 text-xs">78K vues · il y a 3 heures</p>
+            </div>
+          </div>
+        </div>
+        <!-- Répéter pour d'autres vidéos -->
+      </div>
+    </section>
+  </main>
+</body>
+      </html>
